@@ -69,16 +69,16 @@ GenAI/
 
 ## 🔁 What is RAG & Why It Matters?
 
-<br>Retrieval-Augmented Generation (RAG) combines:<br>
+<Retrieval-Augmented Generation (RAG) combines:
 - 🔍 Information Retrieval (searching documents)
 - 🧠 Generation (LLMs)
 
-<br>Instead of relying only on model memory, RAG:<br>
+Instead of relying only on model memory, RAG:
 - Pulls relevant external data
 - Feeds it into the LLM
 - Produces more accurate, up-to-date answers
 
-<br>This approach is widely used in:<br>
+This approach is widely used in:
 - Chatbots
 - PDF Q&A systems
 - Customer support bots
@@ -111,3 +111,42 @@ Run the full RAG pipeline:
 ```
 python ch_10(full_RAG_pipeline).py
 ```
+## 📊 Dataset
+
+This project uses a sample CSV dataset (sales_data_sample.csv) for demonstrating:
+- Context retrieval
+- Question answering using RAG
+
+For larger datasets, it’s recommended to:
+- Use external storage (Kaggle, Google Drive, S3)
+- Avoid pushing large files directly to GitHub
+
+## 🛡️ Best Practices Followed
+
+- Clean repo structure
+- No large files committed
+- Modular scripts
+- Clear naming by concept
+- Portfolio-ready documentation
+
+## 🚧 Future Improvements
+
+- Vector database integration (FAISS / Pinecone / ChromaDB)
+- PDF-based RAG system
+- SQL chatbot using LangChain
+- FastAPI backend for RAG API
+- Frontend using Streamlit
+
+## 👨‍💻 Author
+
+<br>Tayyab Khan<br>
+<br>BTech – AI & Data Science<br>
+Aspiring Data Scientist & GenAI Engineer
+
+📌 GitHub: https://github.com/tayyabkhan00
+
+**⭐ If You Found This Useful**
+
+- Star ⭐ the repository
+- Fork 🍴 it
+- Use it as a learning reference
