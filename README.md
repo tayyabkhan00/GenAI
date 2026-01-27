@@ -38,3 +38,76 @@ GenAI/
 │
 ├── sales_data_sample.csv          # Sample dataset for RAG demo
 └── README.md
+```
+## 🧠 Key Concepts Covered
+
+**🔹 Prompt Engineering**
+
+- System vs user instructions
+- Role-based prompts
+- Few-shot learning
+- Chain-of-thought reasoning
+
+**🔹 Embeddings**
+
+- Convert text into vectors
+- Semantic similarity search
+- Foundation of RAG systems
+
+**🔹 RAG (Retrieval-Augmented Generation)**
+
+- Retrieve relevant context from data
+- Inject retrieved knowledge into prompts
+- Reduce hallucinations
+- Improve factual accuracy
+
+**🔹 LangChain**
+
+- Chains and prompt templates
+- LLM orchestration
+- RAG workflows using LangChain
+
+## 🔁 What is RAG & Why It Matters?
+
+<br>Retrieval-Augmented Generation (RAG) combines:<br>
+- 🔍 Information Retrieval (searching documents)
+- 🧠 Generation (LLMs)
+
+<br>Instead of relying only on model memory, RAG:<br>
+- Pulls relevant external data
+- Feeds it into the LLM
+- Produces more accurate, up-to-date answers
+
+<br>This approach is widely used in:<br>
+- Chatbots
+- PDF Q&A systems
+- Customer support bots
+- Internal knowledge assistants
+
+## ⚙️ Requirements
+
+**Create a virtual environment (recommended):**
+```
+python -m venv venv
+source venv/bin/activate   # macOS/Linux
+```
+**Install dependencies:**
+```
+pip install openai langchain pandas numpy
+```
+## 🔑 Environment Setup
+
+**Create a .env file (do NOT push to GitHub):**
+```
+OPENAI_API_KEY=your_api_key_here
+```
+## ▶️ How to Run
+
+Run a basic chat completion:
+```
+python ch_1(chat_completions).py
+```
+Run the full RAG pipeline:
+```
+python ch_10(full_RAG_pipeline).py
+```
