@@ -1,5 +1,9 @@
 import os
-os.environ["GOOGLE_API_KEY"] = "YOUR_GEMINI_API_KEY"
+
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
+gemini_api_key = os.getenv("GEMINI_API_KEY")
+
 
 from langchain_core.documents import Document
 
@@ -36,7 +40,7 @@ retriever = vectorstore.as_retriever(
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
+    model="models/gemini-flash-latest",
     temperature=0.2
 )
 
@@ -57,17 +61,20 @@ Question:
 """
 )
 
-from langchain.chains import RetrievalQA
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
 
-rag_chain = RetrievalQA.from_chain_type(
-    llm=llm,
-    retriever=retriever,
-    chain_type="stuff",
-    chain_type_kwargs={"prompt": prompt}
+rag_chain = (
+    {
+        "context": retriever,
+        "question": RunnablePassthrough()
+    }
+    | prompt
+    | llm
+    | StrOutputParser()
 )
-
 query = "What is RAG?"
 
 response = rag_chain.invoke(query)
+print(response)
 
-print(response["result"])
