@@ -57,17 +57,19 @@ Question:
 """
 )
 
-from langchain.chains import RetrievalQA
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
 
-rag_chain = RetrievalQA.from_chain_type(
-    llm=llm,
-    retriever=retriever,
-    chain_type="stuff",
-    chain_type_kwargs={"prompt": prompt}
+rag_chain = (
+    {
+        "context": retriever,
+        "question": RunnablePassthrough()
+    }
+    | prompt
+    | llm
+    | StrOutputParser()
 )
-
 query = "What is RAG?"
 
 response = rag_chain.invoke(query)
-
-print(response["result"])
+print(response)
